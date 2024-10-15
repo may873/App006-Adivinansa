@@ -1,6 +1,7 @@
 import flet as ft
 import random
 
+
 def verificar_adivinansa(e,page):
     adivinanza_usuario=int(entrada_numero.value)
 
@@ -8,6 +9,8 @@ def verificar_adivinansa(e,page):
         texto_resultado.value="Felicidades Adivinaste el numero secreto"
         boton_adivinar.disabled=True
         page.add(ft.Audio(src="Victoria.mp3",autoplay=True))
+        entrada_numero.value=""
+        page.update()
     elif adivinanza_usuario<numero_secreto:
         texto_resultado.value="Fallaste  el numero secreto es mayor"
         page.add(ft.Audio(src="Boing.mp3",autoplay=True))
@@ -16,7 +19,8 @@ def verificar_adivinansa(e,page):
         page.add(ft.Audio(src="Boing.mp3",autoplay=True))
         
     entrada_numero.value=""
-    page.uodate()
+    page.update()
+    
 #funcion principal 
 def main(page: ft.Page):
     #variables globales
